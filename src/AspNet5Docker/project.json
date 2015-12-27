@@ -19,17 +19,17 @@
         "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
         "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
         "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
-        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
-        "T4MVC": "3.16.5"
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final"
     },
 
   "commands": {
     "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://0.0.0.0:5000"
   },
 
-  "frameworks": {
-    "dnxcore50": { }
-  },
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": { }
+    },
 
   "exclude": [
     "wwwroot",
