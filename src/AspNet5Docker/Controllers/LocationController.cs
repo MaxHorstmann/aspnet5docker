@@ -15,6 +15,8 @@ namespace AspNet5Docker.Controllers
 
         public IActionResult Index()
         {
+
+
             return View(Locations);
         }
 
