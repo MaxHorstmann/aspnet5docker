@@ -1,9 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿
+@model IEnumerable<AspNet5Docker.Models.Location>
 
-}
 
 <h1>All Locations</h1>
+
+<ul>
+    @foreach (var location in Model)
+    {
+        <div>@location.Name</div>
+    }
+</ul>
 
