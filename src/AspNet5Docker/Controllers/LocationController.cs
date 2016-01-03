@@ -11,15 +11,17 @@ namespace AspNet5Docker.Controllers
 {
     public class LocationController : Controller
     {
-        // GET: /<controller>/
+        static readonly List<Location> Locations  = new List<Location>(); 
+
         public IActionResult Index()
         {
-            var locations = new List<Location>();
-            locations.Add(new Location() {Name = "Zurich"});
-            locations.Add(new Location() { Name = "Berlin" });
-            locations.Add(new Location() { Name = "New York" });
+            return View(Locations);
+        }
 
-            return View(locations);
+        public IActionResult Add(string newLocation)
+        {
+            Locations.Add(new Location() { Name = newLocation } );
+            return RedirectToAction("Index");
         }
     }
 }

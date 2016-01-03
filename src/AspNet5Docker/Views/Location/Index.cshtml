@@ -7,7 +7,13 @@
 <ul>
     @foreach (var location in Model)
     {
-        <div>@location.Name</div>
+        <li>@location.Name</li>
     }
+
 </ul>
+<form asp-controller="Location" asp-action="Add">
+    <input type="text" name="newLocation" placeholder="add new location..." />
+    <input type="submit" />
+</form>
+
 
