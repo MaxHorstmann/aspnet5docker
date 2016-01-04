@@ -23,16 +23,19 @@
     },
 
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://0.0.0.0:5000"
+    "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://0.0.0.0:5001"
   },
 
     "frameworks": {
         "dnx451": {
             "dependencies": {
                 "Npgsql": "3.0.5"
+            },
+            "frameworkAssemblies": {
+                "System.Data": "4.0.0.0",
+                "System.Data.Linq": "4.0.0.0"
             }
-        },
-        "dnxcore50": { }
+        }
     },
 
   "exclude": [

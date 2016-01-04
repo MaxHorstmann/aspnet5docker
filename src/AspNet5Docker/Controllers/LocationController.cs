@@ -16,7 +16,7 @@ namespace AspNet5Docker.Controllers
         public IActionResult Index()
         {
             var locations = new List<Location>();
-            using (var conn = new NpgsqlConnection("Host=192.168.1.8;Username=postgres;Password=mysecretpassword;Database=postgres"))
+            using (var conn = new NpgsqlConnection("Host=192.168.1.8;Username=postgres;Password=mysecretpassword;Database=coffee"))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand())
@@ -27,11 +27,12 @@ namespace AspNet5Docker.Controllers
                     {
                         while (reader.Read())
                         {
-                            locations.Add(reader.GetString(0));
+                            locations.Add(new Location() { Name = reader.GetString(0) });
                         }
                     }
                 }
             }
+
 
             return View(locations);
         }

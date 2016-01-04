@@ -19,11 +19,11 @@ namespace AspNet5Docker
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
 
-            if (env.IsDevelopment())
-            {
-                // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
-                builder.AddApplicationInsightsSettings(developerMode: true);
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
+            //    builder.AddApplicationInsightsSettings(developerMode: true);
+            //}
             Configuration = builder.Build();
         }
 
