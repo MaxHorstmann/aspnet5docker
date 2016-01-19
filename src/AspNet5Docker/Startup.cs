@@ -33,7 +33,7 @@ namespace AspNet5Docker
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddApplicationInsightsTelemetry(Configuration);
+            //services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
         }
@@ -44,7 +44,7 @@ namespace AspNet5Docker
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseApplicationInsightsRequestTelemetry();
+            //app.UseApplicationInsightsRequestTelemetry();
 
             if (env.IsDevelopment())
             {
@@ -58,7 +58,7 @@ namespace AspNet5Docker
 
             app.UseIISPlatformHandler();
 
-            app.UseApplicationInsightsExceptionTelemetry();
+            //app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
 

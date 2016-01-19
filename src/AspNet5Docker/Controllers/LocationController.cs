@@ -16,7 +16,7 @@ namespace AspNet5Docker.Controllers
         public IActionResult Index()
         {
             var locations = new List<Location>();
-            using (var conn = new NpgsqlConnection("Host=192.168.1.8;Username=postgres;Password=mysecretpassword;Database=coffee"))
+            using (var conn = new NpgsqlConnection("Host=192.168.1.7;Username=postgres;Password=mysecretpassword;Database=coffee"))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand())
