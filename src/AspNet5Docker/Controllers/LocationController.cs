@@ -13,10 +13,12 @@ namespace AspNet5Docker.Controllers
     public class LocationController : Controller
     {
 
+        private const string connStr = "Host=192.168.1.7;Username=postgres;Password=mysecretpassword;Database=coffee";
+
         public IActionResult Index()
         {
             var locations = new List<Location>();
-            using (var conn = new NpgsqlConnection("Host=192.168.1.7;Username=postgres;Password=mysecretpassword;Database=coffee"))
+            using (var conn = new NpgsqlConnection(connStr))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand())
@@ -39,8 +41,17 @@ namespace AspNet5Docker.Controllers
 
         public IActionResult Add(string newLocation)
         {
-            // TODO // Locations.Add(new Location() { Name = newLocation } );
-            return RedirectToAction("Index");
+            using (var conn = new NpgsqlConnection(connStr))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO Locations (id, name) VALUES (1, '" + newLocation + "')";
+                    cmd.ExecuteNonQuery();
+                }
+                return RedirectToAction("Index");
+            }
         }
     }
 }
